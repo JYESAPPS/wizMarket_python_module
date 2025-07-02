@@ -697,8 +697,8 @@ def select_local_store_info(batch_size: int = 5000) -> List[LocalStoreBasicInfo]
                         LEFT JOIN BIZ_DETAIL_CATEGORY BDC ON BDC.BIZ_DETAIL_CATEGORY_ID = DCM.REP_ID
                         LEFT JOIN BIZ_SUB_CATEGORY BSC ON BSC.BIZ_SUB_CATEGORY_ID = BDC.BIZ_SUB_CATEGORY_ID
                         LEFT JOIN BIZ_MAIN_CATEGORY BMC ON BMC.BIZ_MAIN_CATEGORY_ID = BSC.BIZ_MAIN_CATEGORY_ID
-                        WHERE ls.LOCAL_YEAR = (SELECT MAX(LOCAL_YEAR) FROM LOCAL_STORE)
-                        AND ls.LOCAL_QUARTER = (SELECT MAX(LOCAL_QUARTER) FROM LOCAL_STORE)
+                        WHERE ls.LOCAL_YEAR = 2025
+                        AND ls.LOCAL_QUARTER = 1
                         AND ls.SUB_DISTRICT_ID IS NOT NULL
                         AND ls.IS_EXIST = 1
                     ;
@@ -876,8 +876,8 @@ def select_local_store_sub_district_id(
                         SUB_DISTRICT_ID
                     FROM LOCAL_STORE
                     JOIN LATEST
-                    ON LOCAL_YEAR = LATEST.MAX_YEAR
-                    AND LOCAL_QUARTER = LATEST.MAX_QUARTER;
+                    ON LOCAL_YEAR = 2025
+                    AND LOCAL_QUARTER = 1;
                 """
 
                 cursor.execute(select_query)
@@ -2348,8 +2348,8 @@ def select_local_store_district_id(
                         DISTRICT_ID
                     FROM LOCAL_STORE
                     JOIN LATEST
-                    ON LOCAL_YEAR = LATEST.MAX_YEAR
-                    AND LOCAL_QUARTER = LATEST.MAX_QUARTER;
+                    ON LOCAL_YEAR = 2025
+                    AND LOCAL_QUARTER = 1;
                 """
 
                 cursor.execute(select_query)

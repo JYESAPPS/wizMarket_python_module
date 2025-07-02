@@ -4,6 +4,8 @@ import os
 import webbrowser
 from PIL import Image
 import time
+import base64
+from io import BytesIO
 
 # .env 파일에서 환경 변수 로드
 load_dotenv()

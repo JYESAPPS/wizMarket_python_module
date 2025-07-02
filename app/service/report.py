@@ -255,6 +255,7 @@ def insert_or_update_local_store_loc_info_j_score_average_data():
     local_store_sub_district_id_list: List[LocalStoreSubdistrictId] = (
         crud_select_local_store_sub_district_id()
     )
+    print(len(local_store_sub_district_id_list))
     local_store_loc_info_j_score_avg_list = (
         select_local_store_loc_info_j_score_average_thread(
             local_store_sub_district_id_list
@@ -1211,23 +1212,23 @@ def insert_or_update_loc_info_district_hot_place_top5_data():
 if __name__ == "__main__":
     # migration_old_talbe_to_new_table_report()  # 874.75 seconds
 
-    # insert_or_update_local_store_info()  #   142.06 seconds
-    # insert_or_update_local_store_loc_info_j_score_average_data()  # 550.52 seconds
-    # insert_or_update_local_store_population_data()  # 171.43 seconds
-    # insert_or_update_local_store_loc_info_data()  # 112.37 seconds
-    # insert_or_update_local_store_loc_info_j_score_data()  # 162.84 seconds
-    # insert_or_update_local_store_loc_info_resident_work_pop_data()  # 104.71 seconds
-    # insert_or_update_local_store_loc_info_move_pop_data()  # 555.05 seconds
-    # insert_or_update_loc_info_district_hot_place_top5_data() # 776.31 seconds
+    insert_or_update_local_store_info()  #   142.06 seconds
+    insert_or_update_local_store_loc_info_j_score_average_data()  # 550.52 seconds
+    insert_or_update_local_store_population_data()  # 171.43 seconds
+    insert_or_update_local_store_loc_info_data()  # 112.37 seconds
+    insert_or_update_local_store_loc_info_j_score_data()  # 162.84 seconds
+    insert_or_update_local_store_loc_info_resident_work_pop_data()  # 104.71 seconds
+    insert_or_update_local_store_loc_info_move_pop_data()  # 555.05 seconds
+    insert_or_update_loc_info_district_hot_place_top5_data() # 776.31 seconds
     # # 약 30분
 
-    # insert_or_update_local_store_top5_menu()  # 248.23 seconds
-    # insert_or_update_commercial_district_j_score_weighted_average_data()  # 9990.48 seconds
-    # insert_or_update_commercial_district_main_detail_category_count_data()  # 622.11 seconds
-    # insert_or_update_commercial_district_weekday_time_client_average_sales()  #  294.81 seconds
-    # insert_or_update_commercial_district_top5_top3_data()  # 777.15 seconds
-    # insert_or_update_commercial_district_j_score_average_data()  #  68437.64 seconds
-    # insert_or_update_commercial_district_district_average_sales_data()  #  5634.10 seconds
-    # insert_or_update_commercial_district_commercial_district_average_data()  # 78961.68 seconds
-    # 약 46시간
+    insert_or_update_local_store_top5_menu()  # 248.23 seconds
+    insert_or_update_commercial_district_j_score_weighted_average_data()  # 9990.48 seconds
+    insert_or_update_commercial_district_main_detail_category_count_data()  # 622.11 seconds
+    insert_or_update_commercial_district_weekday_time_client_average_sales()  #  294.81 seconds
+    insert_or_update_commercial_district_top5_top3_data()  # 777.15 seconds
+    insert_or_update_commercial_district_j_score_average_data()  #  68437.64 seconds
+    insert_or_update_commercial_district_district_average_sales_data()  #  5634.10 seconds
+    insert_or_update_commercial_district_commercial_district_average_data()  # 78961.68 seconds
+    # # 약 46시간
     print("END!!!!!!!!!!!!!!!")
