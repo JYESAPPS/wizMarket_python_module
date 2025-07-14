@@ -6,18 +6,19 @@ url = "https://www.ailabapi.com/api/image/editing/ai-image-extender"
 api_key = "H8zZOZF4ojlt2Rya3siWbB7NUTO6oY45vcDD1vqb5XB79QmJEUMaCeumrfpCJrjk"
 
 # 이미지 경로
-image_path = r"C:\Users\jyes_semin\Desktop\Data\test.png"
+image_path = r"C:\Users\jyes_semin\Desktop\Data\ex.png"
 
 # 파라미터 설정
 payload = {
+    'custom_prompt':"Please make the image clearer while enlarging it.",
     'steps': '30',
     'strength': '0.8',
     'scale': '7',
     'seed': '0',
-    'top': '0.1',
-    'bottom': '0.1',
-    'left': '0.1',
-    'right': '0.1',
+    'top': '0.5',
+    'bottom': '0.5',
+    'left': '0.5',
+    'right': '0.5',
     'max_height': '1920',
     'max_width': '1920'
 }

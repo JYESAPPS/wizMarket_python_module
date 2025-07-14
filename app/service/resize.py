@@ -2,8 +2,8 @@ from PIL import Image
 import os
 import shutil
 
-SOURCE_BASE = r"C:\Users\jyes_semin\Desktop\Data\Design\77"
-DEST_BASE = r"C:\workspace\back\wizMarket_ads_be\app\uploads\thumbnail\77"
+SOURCE_BASE = r"C:\Users\jyes_semin\Desktop\Data\Design\23"
+DEST_BASE = r"C:\workspace\back\wizMarket_ads_be\app\uploads\thumbnail\23"
 TARGET_SIZE = (400, 400)
 JPEG_QUALITY = 85
 SUPPORTED_EXT = [".png", ".jpg", ".jpeg"]
@@ -16,7 +16,6 @@ def process_folder(folder_name):
         print(f"❌ 대상 폴더 없음: {dst_folder}")
         return
 
-    # 이미지 파일만 필터링 및 정렬 (예: 1.jpg, 2.png ...)
     image_files = sorted([
         f for f in os.listdir(src_folder)
         if os.path.splitext(f)[1].lower() in SUPPORTED_EXT
@@ -35,15 +34,22 @@ def process_folder(folder_name):
         try:
             with Image.open(renamed_path) as img:
                 img = img.convert("RGB")
-                img = img.resize(TARGET_SIZE, Image.LANCZOS)
+                img = img.resize(TARGET_SIZE, Image.Resampling.LANCZOS)
                 thumb_path = os.path.join(src_folder, f"thumbnail_{idx}_thumb.jpg")
                 img.save(thumb_path, "JPEG", quality=JPEG_QUALITY)
                 print(f"✅ 썸네일 저장됨: {thumb_path}")
         except Exception as e:
             print(f"❌ 이미지 처리 에러: {renamed_path} -> {e}")
+            continue
 
-    # ✅ 리네임된 원본 + 썸네일 복사
+        # ✅ 리네임된 원본 삭제
+        os.remove(renamed_path)
+        print(f"🗑️ 원본 삭제됨: {renamed_path}")
+
+    # ✅ 썸네일만 복사
     for file in os.listdir(src_folder):
+        if "_thumb.jpg" not in file:
+            continue
         src_file = os.path.join(src_folder, file)
         dst_file = os.path.join(dst_folder, file)
         shutil.copy2(src_file, dst_file)
